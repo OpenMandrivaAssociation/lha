@@ -1,6 +1,6 @@
 %define name lha
 %define version	1.14i
-%define release %mkrel 12
+%define release %mkrel 13
 %define serial 1
 
 Name: %{name}
@@ -15,6 +15,7 @@ Patch3: lha-114i-sec.patch
 Patch4: lha-114i-symlink.patch
 Patch5: lha-dir_length_bounds_check.patch
 Patch6: lha-114i-sec2.patch
+Patch7: lha-1.14i-CVE-2007-2030.patch
 License: Freeware-like
 Group: Archiving/Compression 
 URL: http://www2m.biglobe.ne.jp/~dolphin/lha/lha-unix.htm
@@ -41,6 +42,7 @@ be read on the Amiga or DOS.
 %patch3 -p1 -b .sec
 %patch5 -p1 -b .bounds
 %patch6 -p1 -b .sec2
+%patch7 -p1 -b .cve-2007-2030
 
 %build
 make OPTIMIZE="$RPM_OPT_FLAGS"
