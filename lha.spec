@@ -1,6 +1,6 @@
 %define name lha
 %define version	1.14i
-%define release %mkrel 13
+%define release %mkrel 14
 %define serial 1
 
 Name: %{name}
@@ -8,6 +8,7 @@ Summary: An archiving and compression utility for LHarc format archives.
 Version: %{version}
 Release: %{release}
 Source: http://www2m.biglobe.ne.jp/~dolphin/lha/prog/%{name}-114i.tar.bz2
+Source1: http://packages.debian.org/changelogs/pool/non-free/l/lha/current/copyright
 Patch0: lha-1.14i-make.patch
 Patch1: lha-1.14e-ext.patch
 Patch2: lha-1.14i-fix-includes.patch
@@ -44,6 +45,8 @@ be read on the Amiga or DOS.
 %patch6 -p1 -b .sec2
 %patch7 -p1 -b .cve-2007-2030
 
+cp %{SOURCE1} .
+
 %build
 make OPTIMIZE="$RPM_OPT_FLAGS"
 
@@ -59,6 +62,7 @@ rm -r $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
+%doc copyright
 %{_bindir}/lha
 %lang(ja) %{_mandir}/ja/man1/lha.1.bz2
 
