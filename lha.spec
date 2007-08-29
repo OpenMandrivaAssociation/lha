@@ -64,6 +64,6 @@ rm -r $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc copyright
 %{_bindir}/lha
-%lang(ja) %{_mandir}/ja/man1/lha.1.bz2
+%lang(ja) %{_mandir}/ja/man1/lha.1*
 
 
