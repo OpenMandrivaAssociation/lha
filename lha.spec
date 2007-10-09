@@ -4,7 +4,7 @@
 %define serial 1
 
 Name: %{name}
-Summary: An archiving and compression utility for LHarc format archives.
+Summary: An archiving and compression utility for LHarc format archives
 Version: %{version}
 Release: %{release}
 Source: http://www2m.biglobe.ne.jp/~dolphin/lha/prog/%{name}-114i.tar.bz2
