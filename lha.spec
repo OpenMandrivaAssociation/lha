@@ -20,7 +20,6 @@ Patch7: lha-1.14i-CVE-2007-2030.patch
 License: Freeware-like
 Group: Archiving/Compression 
 URL: http://www2m.biglobe.ne.jp/~dolphin/lha/lha-unix.htm
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Epoch: %{serial}
 
 %description
