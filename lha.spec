@@ -1,6 +1,6 @@
 %define name lha
 %define version	1.14i
-%define release %mkrel 15
+%define release %mkrel 16
 %define serial 1
 
 Name: %{name}
