@@ -1,6 +1,6 @@
 %define name lha
 %define version	1.14i
-%define release %mkrel 17
+%define release %mkrel 18
 %define serial 1
 
 Name: %{name}
@@ -48,9 +48,7 @@ be read on the Amiga or DOS.
 cp %{SOURCE1} .
 
 %build
-export LDFLAGS="`rpm --eval %%configure|grep LDFLAGS|cut -d\\" -f2|sed -e 's/\$LDFLAGS\ //'`"
-
-make OPTIMIZE="%{optflags} -DSUPPORT_LH7 -DMKSTEMP" LDFLAGS="$LDFLAGS"
+make OPTIMIZE="%{optflags} -DSUPPORT_LH7 -DMKSTEMP" LDFLAGS="%ldflags"
 
 %install
 rm -rf $RPM_BUILD_ROOT
