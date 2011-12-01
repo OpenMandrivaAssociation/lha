@@ -51,15 +51,15 @@ cp %{SOURCE1} .
 make OPTIMIZE="%{optflags} -DSUPPORT_LH7 -DMKSTEMP" LDFLAGS="%ldflags"
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
-mkdir -p $RPM_BUILD_ROOT%{_bindir}
-install -s -m 755 src/lha $RPM_BUILD_ROOT%{_bindir}
-mkdir -p $RPM_BUILD_ROOT%{_mandir}/ja/man1
-install -m 644 man/lha.n $RPM_BUILD_ROOT%{_mandir}/ja/man1/lha.1
+mkdir -p %{buildroot}%{_bindir}
+install -s -m 755 src/lha %{buildroot}%{_bindir}
+mkdir -p %{buildroot}%{_mandir}/ja/man1
+install -m 644 man/lha.n %{buildroot}%{_mandir}/ja/man1/lha.1
 
 %clean
-rm -r $RPM_BUILD_ROOT
+rm -r %{buildroot}
 
 %files
 %defattr(-,root,root)
