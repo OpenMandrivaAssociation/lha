@@ -1,6 +1,6 @@
 %define name lha
 %define version	1.14i
-%define release %mkrel 22
+%define release %mkrel 23
 %define serial 1
 
 Name: %{name}
@@ -51,15 +51,15 @@ cp %{SOURCE1} .
 make OPTIMIZE="%{optflags} -DSUPPORT_LH7 -DMKSTEMP" LDFLAGS="%ldflags"
 
 %install
-rm -rf %{buildroot}
+rm -rf $RPM_BUILD_ROOT
 
-mkdir -p %{buildroot}%{_bindir}
-install -s -m 755 src/lha %{buildroot}%{_bindir}
-mkdir -p %{buildroot}%{_mandir}/ja/man1
-install -m 644 man/lha.n %{buildroot}%{_mandir}/ja/man1/lha.1
+mkdir -p $RPM_BUILD_ROOT%{_bindir}
+install -s -m 755 src/lha $RPM_BUILD_ROOT%{_bindir}
+mkdir -p $RPM_BUILD_ROOT%{_mandir}/ja/man1
+install -m 644 man/lha.n $RPM_BUILD_ROOT%{_mandir}/ja/man1/lha.1
 
 %clean
-rm -r %{buildroot}
+rm -r $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
@@ -67,4 +67,77 @@ rm -r %{buildroot}
 %{_bindir}/lha
 %lang(ja) %{_mandir}/ja/man1/lha.1*
 
+
+
+
+%changelog
+* Wed May 04 2011 Oden Eriksson <oeriksson@mandriva.com> 1:1.14i-22mdv2011.0
++ Revision: 666075
+- mass rebuild
+
+* Fri Dec 03 2010 Oden Eriksson <oeriksson@mandriva.com> 1:1.14i-21mdv2011.0
++ Revision: 606404
+- rebuild
+
+* Mon Mar 15 2010 Oden Eriksson <oeriksson@mandriva.com> 1:1.14i-20mdv2010.1
++ Revision: 520139
+- rebuilt for 2010.1
+
+* Wed Sep 02 2009 Christophe Fergeau <cfergeau@mandriva.com> 1:1.14i-19mdv2010.0
++ Revision: 425509
+- rebuild
+
+* Sat Dec 20 2008 Oden Eriksson <oeriksson@mandriva.com> 1:1.14i-18mdv2009.1
++ Revision: 316439
+- use the %%ldflags macro
+
+* Fri Dec 19 2008 Oden Eriksson <oeriksson@mandriva.com> 1:1.14i-17mdv2009.1
++ Revision: 316241
+- make it respect old OPTIMIZE CFLAGS (use mkstemp)
+- use LDFLAGS from the %%configure macro
+
+* Tue Jun 17 2008 Thierry Vignaud <tv@mandriva.org> 1:1.14i-16mdv2009.0
++ Revision: 222427
+- rebuild
+
+* Sun Jan 13 2008 Thierry Vignaud <tv@mandriva.org> 1:1.14i-15mdv2008.1
++ Revision: 150445
+- rebuild
+- kill re-definition of %%buildroot on Pixel's request
+- fix summary-ended-with-dot
+- do not hardcode bz2 extension
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Fri Jul 06 2007 Olivier Blin <oblin@mandriva.com> 1:1.14i-14mdv2008.0
++ Revision: 48938
+- add copyright file from Debian
+
+* Wed Jul 04 2007 Olivier Blin <oblin@mandriva.com> 1:1.14i-13mdv2008.0
++ Revision: 48033
+- apply security fix for CVE-2007-2030 (#31213)
+
+
+* Sat Jan 13 2007 GÃ¶tz Waschk <waschk@mandriva.org> 1.14i-12mdv2007.0
++ Revision: 108282
+- drop packager tag
+- Import lha
+
+* Sat Jan 13 2007 Götz Waschk <waschk@mandriva.org> 1.14i-12mdv2007.1
+- unpack patches
+
+* Sat Dec 31 2005 Guillaume Cottenceau <gc@mandrakesoft.com> 1.14i-12mdk
+- Rebuild
+
+* Fri Sep 17 2004 Götz Waschk <waschk@linux-mandrake.com> 1.14i-11mdk
+- add symlink patch from fedora
+- security update (CAN-2004-0769, CAN-2004-0771, CAN-2004-0694, CAN-2004-0745)
+
+* Wed May 05 2004 Götz Waschk <waschk@linux-mandrake.com> 1.14i-10mdk
+- security update (buffer overflow, directory traversal)
+
+* Fri Feb 27 2004 Götz Waschk <waschk@linux-mandrake.com> 1.14i-9mdk
+- language tag japanese man page
+- fix url
 
