@@ -45,7 +45,7 @@ cp %{SOURCE1} .
 make OPTIMIZE="%{optflags} -DSUPPORT_LH7 -DMKSTEMP" LDFLAGS="%{ldflags}"
 
 %install
-install -s -m 755 src/lha -D %{buildroot}%{_bindir}/lha
+install -m755 src/lha -D %{buildroot}%{_bindir}/lha
 install -m644 man/lha.n -D %{buildroot}%{_mandir}/ja/man1/lha.1
 
 %files
