@@ -1,27 +1,21 @@
-%define name lha
-%define version	1.14i
-%define release %mkrel 23
-%define serial 1
-
-Name: %{name}
-Summary: An archiving and compression utility for LHarc format archives
-Version: %{version}
-Release: %{release}
-Source: http://www2m.biglobe.ne.jp/~dolphin/lha/prog/%{name}-114i.tar.bz2
-Source1: http://packages.debian.org/changelogs/pool/non-free/l/lha/current/copyright
-Patch0: lha-1.14i-make.patch
-Patch1: lha-1.14e-ext.patch
-Patch2: lha-1.14i-fix-includes.patch
-Patch3: lha-114i-sec.patch
-Patch4: lha-114i-symlink.patch
-Patch5: lha-dir_length_bounds_check.patch
-Patch6: lha-114i-sec2.patch
-Patch7: lha-1.14i-CVE-2007-2030.patch
-License: Freeware-like
-Group: Archiving/Compression 
-URL: http://www2m.biglobe.ne.jp/~dolphin/lha/lha-unix.htm
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Epoch: %{serial}
+Summary:	An archiving and compression utility for LHarc format archives
+Name:		lha
+Version:	1.14i
+Release:	24
+Source0:	http://www2m.biglobe.ne.jp/~dolphin/lha/prog/%{name}-114i.tar.bz2
+Source1:	http://packages.debian.org/changelogs/pool/non-free/l/lha/current/copyright
+Patch0:		lha-1.14i-make.patch
+Patch1:		lha-1.14e-ext.patch
+Patch2:		lha-1.14i-fix-includes.patch
+Patch3:		lha-114i-sec.patch
+Patch4:		lha-114i-symlink.patch
+Patch5:		lha-dir_length_bounds_check.patch
+Patch6:		lha-114i-sec2.patch
+Patch7:		lha-1.14i-CVE-2007-2030.patch
+License:	Freeware-like
+Group:		Archiving/Compression 
+URL:		http://www2m.biglobe.ne.jp/~dolphin/lha/lha-unix.htm
+Epoch:		1
 
 %description
 LhA is an archiving and compression utility for LHarc format archive.
@@ -48,27 +42,16 @@ be read on the Amiga or DOS.
 cp %{SOURCE1} .
 
 %build
-make OPTIMIZE="%{optflags} -DSUPPORT_LH7 -DMKSTEMP" LDFLAGS="%ldflags"
+make OPTIMIZE="%{optflags} -DSUPPORT_LH7 -DMKSTEMP" LDFLAGS="%{ldflags}"
 
 %install
-rm -rf $RPM_BUILD_ROOT
-
-mkdir -p $RPM_BUILD_ROOT%{_bindir}
-install -s -m 755 src/lha $RPM_BUILD_ROOT%{_bindir}
-mkdir -p $RPM_BUILD_ROOT%{_mandir}/ja/man1
-install -m 644 man/lha.n $RPM_BUILD_ROOT%{_mandir}/ja/man1/lha.1
-
-%clean
-rm -r $RPM_BUILD_ROOT
+install -s -m 755 src/lha -D %{buildroot}%{_bindir}/lha
+install -m644 man/lha.n -D %{buildroot}%{_mandir}/ja/man1/lha.1
 
 %files
-%defattr(-,root,root)
 %doc copyright
 %{_bindir}/lha
 %lang(ja) %{_mandir}/ja/man1/lha.1*
-
-
-
 
 %changelog
 * Wed May 04 2011 Oden Eriksson <oeriksson@mandriva.com> 1:1.14i-22mdv2011.0
