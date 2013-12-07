@@ -2,7 +2,7 @@ Summary:	An archiving and compression utility for LHarc format archives
 Name:		lha
 Epoch:		1
 Version:	1.14i
-Release:	25
+Release:	26
 License:	Freeware-like
 Group:		Archiving/Compression 
 Url:		http://www2m.biglobe.ne.jp/~dolphin/lha/lha-unix.htm
