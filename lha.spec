@@ -9,7 +9,7 @@ License:	Freeware-like
 Group:		Archiving/Compression 
 Url:		https://github.com/jca02266/lha
 # Upstream no longer provide releases, so we use git.
-Source0:	https://github.com/jca02266/lha/archive/master.zip
+Source0:	https://github.com/jca02266/lha/archive/%{name}-master.zip
 Source1:	http://packages.debian.org/changelogs/pool/non-free/l/lha/current/copyright
 
 %description
