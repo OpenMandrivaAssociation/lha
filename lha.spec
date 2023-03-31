@@ -4,7 +4,7 @@ Summary:	An archiving and compression utility for LHarc format archives
 Name:		lha
 Epoch:		1
 Version:	20211125
-Release:	1
+Release:	2
 License:	Freeware-like
 Group:		Archiving/Compression 
 Url:		https://github.com/jca02266/lha
